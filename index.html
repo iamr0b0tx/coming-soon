@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg-img {
+            background-image: url('forestbridge.jpg');
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            color: white;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 25px;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 0;
+            left: 16px;
+        }
+
+        .bottom {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .middle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        hr {
+            margin: auto;
+            width: 40%;
+        }
+    </style>
+</head>
+
+
+<body>
+<div class="bg-img">
+    <div class="top-left">
+        <br>
+        <img src="images/favicon-32x32.png">
+    </div>
+    <div class="middle">
+        <h1>COMING SOON</h1>
+        <hr>
+        <p id="daysLeft">some days left</p>
+    </div>
+    <div class="bottom">
+        <p>twobitsconnect &#169; 2021</p>
+    </div>
+</div>
+
+<script>
+    const daysLeft = document.getElementById("daysLeft");
+
+    const date1 = new Date();
+    const date2 = new Date('7/1/2021');
+
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    plural = (diffDays > 1) ? "s" : ""
+    daysLeft.innerText = `${diffDays} day${plural} left!`
+
+</script>
+</body>
+</html>

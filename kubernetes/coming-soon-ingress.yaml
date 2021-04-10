@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: coming-soon-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-coming-soon
+spec:
+  tls:
+  - hosts:
+    - twobitsconnect.com
+    - www.twobitsconnect.com
+    secretName: coming-soon-tls
+  rules:
+  - host: "www.twobitsconnect.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: coming-soon
+            port:
+              number: 80
+  - host: "twobitsconnect.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: coming-soon
+            port:
+              number: 80
